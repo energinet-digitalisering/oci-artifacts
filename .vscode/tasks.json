@@ -1,0 +1,76 @@
+{
+  "tasks": [
+    {
+      "label": "Create cluster",
+      "command": "ksail up ${input:cluster-name}",
+      "group": {
+        "isDefault": true,
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Start cluster",
+      "command": "ksail start ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Stop cluster",
+      "command": "ksail stop ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Update cluster",
+      "command": "ksail update ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Lint cluster",
+      "command": "ksail lint ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Check cluster",
+      "command": "ksail check ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "label": "Destroy cluster",
+      "command": "ksail destroy ${input:cluster-name}",
+      "group": {
+        "kind": "none"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "cluster-name",
+      "type": "promptString",
+      "description": "Cluster name",
+    }
+  ],
+  "version": "2.0.0"
+}

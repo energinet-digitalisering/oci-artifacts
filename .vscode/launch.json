@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "name": "⏏️⛴️ Create Clusters",
+      "preLaunchTask": "Create cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "▶️⛴️ Start Clusters",
+      "preLaunchTask": "Start cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "⏹️⛴️ Stop Clusters",
+      "preLaunchTask": "Stop cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "🔄⛴️ Update Clusters",
+      "preLaunchTask": "Update cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "⏺️⛴️ Destroy Clusters",
+      "preLaunchTask": "Destroy cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "🔎⛴️ List Cluster",
+      "preLaunchTask": "Lint cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    },
+    {
+      "name": "✅⛴️ Check Cluster",
+      "preLaunchTask": "Check cluster",
+      "request": "attach",
+      "timeout": 1,
+      "type": "node"
+    }
+  ],
+  "version": "0.2.0"
+}

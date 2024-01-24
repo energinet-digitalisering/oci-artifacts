@@ -1,0 +1,41 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [main]
+    types:
+      - synchronize
+      - opened
+      - reopened
+      - edited
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-cluster:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.pull_request.title, '[DRAFT]') }}
+    steps:
+      - name: 📑 Checkout
+        uses: actions/checkout@v4
+      - name: ⚙️ Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - name: ⚙️ Install KSail
+        run: brew install devantler/formulas/ksail
+      - name: ⛴️ Provision cluster
+        run: ksail up ${{ vars.CLUSTER_NAME }}
+      - name: 🚦 Check for use of deprecated APIs
+        run: $GHA_SCRIPTS_DIR/e2e-k8s-check-deprecated-apis.sh
+      - name: 🐎 Print free CPU
+        if: always()
+        run: |
+          top -bn2 | grep '%Cpu' | tail -1 | grep -P '(....|...) id,' | awk -v cores=$(nproc --all) '{print "CPU Usage: " 100-($8/cores) "% (" cores " cores)"}'
+      - name: 🧠 Print free memory
+        if: always()
+        run: |
+          free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+      - name: 🔥 Teardown cluster
+        if: always()
+        run: ksail down
