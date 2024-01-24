@@ -1,0 +1,13 @@
+apiVersion: executor.testkube.io/v1
+kind: Executor
+metadata:
+  name: dotnet-container-executor
+  namespace: testkube
+spec:
+  types:
+    - dotnet-container/test
+  executor_type: container
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  command:
+    - "dotnet"
+    - "test"

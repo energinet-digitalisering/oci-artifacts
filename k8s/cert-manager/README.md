@@ -1,0 +1,11 @@
+# cert-manager
+
+cert-manager is a Kubernetes add-on to automate the management and issuance of TLS certificates from various issuing sources.
+
+- [Documentation](https://cert-manager.io/docs/)
+
+## TL;DR
+
+- Deploy cert-manager
+- Deploy a certificate (Found in `certificates/`)
+- Deploy a cluster-issuer (Found in `cluster-issuers/`)

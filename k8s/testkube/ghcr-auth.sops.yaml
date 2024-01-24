@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: ghcr-auth
+type: kubernetes.io/dockerconfigjson
+data:
+    .dockerconfigjson: ENC[AES256_GCM,data:y2XdyH3M1rrqRqlefxECMIiY8G8qnrnVwjVAqM11pFvOUQODrXZbCjm8ZvpQc07PHKCMKSMnNrRxh3/u22rZbmZseKZI6sJx2sprP9cuh/11jrgxH7w1FpQFS0kB6aC8sz/Q2Sj7FaIWQ7T+G2FlYbqxeGaFrVwsmWmeJAvzznj2H0abhVaAaW5pUGSlikWWTNF1iCNcw2nG871SGtrODp8lDJ4YfKcBVzEhSjFf2xBN+EGSrUSqGBfgo25e7DSrsT0+36S2WldDgQxXV3zL17FTR+fj6lmTBfF89bEtJ3cidna8+hJGAWGEJjFaD5vcTcGscQGHlJQjqC3lLRbg7xTHCbNLnIV8,iv:7/GbmcKNU9SDNfYGFaxSja1EpcKBZ2qKVE9Gf2NiQ8o=,tag:ii71yDAmDSkceLeOpvT3SA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-12-01T12:38:30Z"
+    mac: ENC[AES256_GCM,data:R8389JUHmk5sdBk8Ee2Kk9gjq+v93vMv0TYyu/vZuzSYTo+Mf0lQqC6Src9RxF/vgsZ/W9EfGt4BCRNOa4uPqhLx6FrYMm1n+OeHALks32Hytw5xgoqIrMuCmEa8WvRnjl2jBh6Atu1gajsKCwXjcpYMeObvt/k7dw7TFcRSPbI=,iv:V0puC4wyEyPgXG5ubEfrEozGqSI++vQIopFmU8pK3q0=,tag:zF1pVAr/x0IDIiP/xs81GQ==,type:str]
+    pgp:
+        - created_at: "2023-12-01T12:38:30Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA6iPKwmg8b6dAQ//StcTdAGNBYkLZQDd1ZsvhhIuqcp2xN+qg4zcOx0L63+A
+            oFKGaSFUFix/6LM0OdLlZaoFMdK81/u79bRXszeS/fwkaEgx/sy3a0gvPCxIwIJj
+            eW+pR2Ms8Rd04NV8tsDab9rcnXGbs5RpPrMG5jtuuEL37jTtak/vNjjUar3MFrht
+            6hbrfzaDab88CYKaPFVoixuCNGeuJR4uct6kNnKcvO+XQnzVXLdTU68oZoSfMsQ3
+            3i5UaLrF2cljM8i6LlpGmpTwSIWgYZuBeBv3YwbqxKuIMeOIVO5bk7z8dPNszH7h
+            FtEFYPYzoA2RuZlgXWGjJOQX/8NFcBTcCpDHG/7iUY9SB7BgE77+mDyGNdYvMjlx
+            YjZiasDx4FtTde7ypIe1LHt2FkWiWiXCn+psF1KoQKx8t5WMU3IzWQfQSiXoTPJP
+            EQiu92hxcrEIfgi7H2RVpOHUXsGm71UQ3xZyNXyXadhpRGdrYMdO7PYTai5ndpz5
+            xbLhttXs5WO55v142wPE2GmP+fC2rMdKn1+umJf0aIy7/T+PjXNsZqtXw60YKJcH
+            HS7aaxfHMZqtLJgZ+tR0GprBPMeTi/8Ovr7OmWWlUfXDyO4UzxCsmoiQiLPp5vEg
+            bQPLT8vmf3/cOen8x2Z88zXt5DXw4sbcie1aOdldA0JnTvsOUi3miiioh9oYAGrU
+            ZgEJAhC8av2a3WeDxAPJOzPXoiFWxxOqegT7G/W7G0GT8ieG8B+PQCXWxSf3wjsS
+            DuVaxPbyblXWGfj9YPOX3kiYh24M5RAMjjLIdimT7mlY6QHDTCuXRAKAJQ5f5EOZ
+            diDoa+fBvA==
+            =C54M
+            -----END PGP MESSAGE-----
+          fp: C6CBBB54C2A14D5F67BC0A55C0B7AE186C8CDF5E
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1
