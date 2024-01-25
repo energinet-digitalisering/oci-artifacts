@@ -26,6 +26,8 @@ jobs:
         run: brew install devantler/formulas/ksail
       - name: ⛴️ Provision cluster
         run: ksail up ${{ vars.CLUSTER_NAME }}
+        env:
+          KSAIL_SOPS_KEY: ${{ secrets.KSAIL_SOPS_KEY }}
       - name: 🚦 Check for use of deprecated APIs
         run: $GHA_SCRIPTS_DIR/e2e-k8s-check-deprecated-apis.sh
       - name: 🐎 Print free CPU
