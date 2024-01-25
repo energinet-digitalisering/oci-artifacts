@@ -21,6 +21,8 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: variables
+      - kind: Secret
+        name: variables-sensitive
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -46,3 +48,5 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: variables
+      - kind: Secret
+        name: variables-sensitive

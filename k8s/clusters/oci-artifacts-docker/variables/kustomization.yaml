@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - variables.yaml
+  - variables-sensitive.sops.yaml
