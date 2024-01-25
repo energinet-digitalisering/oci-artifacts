@@ -19,4 +19,4 @@ spec:
           claimName: pulumi-backend-pvc
     extraVolumeMounts:
       - name: backend-data
-        mountPath: ${pulumi_backend_path}
+        mountPath: ${pulumi_backend_path:=/pulumi-backend}
