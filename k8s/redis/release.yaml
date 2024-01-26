@@ -18,7 +18,7 @@ spec:
   # https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
   values:
     auth:
-      password: ${redis_password:=redis}
+      password: ${redis_password}
     master:
       persistence:
         enabled: ${redis_persistence_enabled:=false}
