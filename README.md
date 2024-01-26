@@ -60,4 +60,4 @@ ksail sops --import <file-name>
 
 Azure:
 
-- Create an Infrastructure as Code (IaC) repository from the [infrasructure-iac-pulumi-azure](https://github.com/energinet-digitalisering/infrastructure-iac-pulumi-azure-template) repository or the [infrastructure-iac-terraform-azure](https://github.com/energinet-digitalisering/infrastructure-iac-terraform-azure-template) template, and follow the instructions in the README.md file to provision the infrastructure.
+- Create an Infrastructure as Code (IaC) repository from the [pulumi-aks-gitops-template](https://github.com/energinet-digitalisering/pulumi-aks-gitops-template) repository template, and follow the instructions in the README.md file to provision the infrastructure.
