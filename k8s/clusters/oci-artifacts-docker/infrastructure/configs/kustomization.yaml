@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../../../cert-manager/certificates/cluster-issuer-certificate.yaml
   - ../../../../cert-manager/cluster-issuers/selfsigned-cluster-issuer.yaml
+  - ../../../../testkube/executors/dotnet-container-executor.yaml
