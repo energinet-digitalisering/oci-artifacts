@@ -2,6 +2,11 @@
 
 This repository contains the Kubernetes (K8s) manifests for the [cluster-name] cluster.
 
+<!-- readme-tree start -->
+ ```
+ ```
+ <!-- readme-tree end -->
+
 ## Requirements
 
 - [KSail](https://github.com/devantler/ksail)
