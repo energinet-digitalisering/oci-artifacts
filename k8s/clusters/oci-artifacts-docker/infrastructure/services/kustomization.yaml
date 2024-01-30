@@ -8,3 +8,5 @@ resources:
   - ../../../../reloader
   - ../../../../testkube
   - ../../../../traefik
+  - ../../../../gha-runner-scale-set
+  - ../../../../gha-runner-scale-set-controller
