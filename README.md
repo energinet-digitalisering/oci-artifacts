@@ -24,17 +24,26 @@ This repository serves as the source-of-truth for the OCI Artifacts.
 > [! NOTE ]
 > Pulling K8s manifest over OCI is not supported by Kustomize yet. There is an active Pull Request that will add support for this. Until then, we can use Git over HTTP to reference the OCI Artifact.
 
-To reference an OCI Artifact with Kustomize, you need to add the following to your `kustomization.yaml` file that you want to reference the OCI Artifact from:
+To reference an OCI Artifact with Kustomize, you need to add the following to your `kustomization.yaml` files that you want to reference the OCI Artifact and its configurations from:
 
 ```yaml
+# Service deployments
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # To reference a service you use the following syntax:
   - https://github.com/energinet-digitalisering/oci-artifacts//k8s/[serviceName]?ref=[refName]
+
+---
+# Config deployments
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
   # To reference a config you use the following syntax:
   - https://raw.githubusercontent.com/energinet-digitalisering/oci-artifacts/[refName]/k8s/[serviceName]/[pathToConfigYamlFile]
 ```
+
+Where `[serviceName]` is the name of the OCI Artifact you want to reference, and `[refName]` is the name of the branch or tag you want to pull the OCI Artifact from. If you want to reference a config file, you also need to specify the [pathToConfigYamlFile] which is the path to the yaml file relative to the OCI Artifact folder. For example `cert-manager/certificates/cluster-issuer-certificate.yaml`, if you want to pull the cluster issuer certificate provided by the cert-manager OCI Artifact
 
 ### Setting variables for OCI Artifacts
 
