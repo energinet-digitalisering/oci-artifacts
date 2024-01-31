@@ -38,4 +38,4 @@ jobs:
           free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
       - name: 🔥 Teardown cluster
         if: always()
-        run: ksail down
+        run: ksail down ${{ vars.KSAIL_CLUSTER_NAME }}
