@@ -22,7 +22,7 @@ This repository serves as the source-of-truth for the OCI Artifacts.
 ### Reference an OCI Artifact with Kustomize
 
 > [! NOTE ]
-> Pulling K8s manifest over OCI is not supported by Kustomize yet. There is an active Pull Request that will add support for this. Until then, we can use Git over HTTP to reference the OCI Artifact.
+> Pulling K8s manifest over OCI is not supported by Kustomize yet. There is [an active Pull Request](https://github.com/kubernetes-sigs/kustomize/pull/5147) that will add support for this. Until then, we can use Git over HTTP to reference the OCI Artifact.
 
 To reference an OCI Artifact with Kustomize, you need to add the following to your `kustomization.yaml` files that you want to reference the OCI Artifact and its configurations from:
 
