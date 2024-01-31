@@ -69,7 +69,7 @@ patches:
       namespace: traefik
 ```
 
-This allows you full control over the OCI Artifacts, but it if you require a lot of patches, you might want to consider contributing to the OCI Artifact to make it more flexible, or copying the OCI Artifact into your own clusters repo and configure it there.
+This allows you full control over the OCI Artifacts, but if you require a lot of patches, you might want to consider contributing to the OCI Artifact to make it more flexible, or copying the OCI Artifact into your own clusters repo and configure it there.
 
 ## Contributing
 
