@@ -8,7 +8,7 @@
     sourceRef:
       kind: OCIRepository
       name: flux-system
-    path: ./clusters/oci-artifacts-docker/variables
+    path: ./clusters/oci-artifacts-ksail/variables
     prune: true
     wait: true
     decryption:
