@@ -25,7 +25,7 @@ jobs:
       - name: ⚙️ Install KSail
         run: brew install devantler/formulas/ksail
       - name: ⛴️ Provision cluster
-        run: ksail up ${{ vars.KSAIL_CLUSTER_NAME }}
+        run: ksail up ${{ vars.KSAIL_CLUSTER_NAME }} --timeout 400
         env:
           KSAIL_SOPS_KEY: ${{ secrets.KSAIL_SOPS_KEY }}
       - name: 🐎 Print free CPU
