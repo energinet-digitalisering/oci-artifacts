@@ -1,6 +1,8 @@
-# [cluster-name]
+# OCI Artifacts
 
-This repository contains the Kubernetes (K8s) manifests for the [cluster-name] cluster.
+This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts.
+
+OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requires almost no lines of code to get services deployed, so it can in some cases be a great alternative to Helm charts. However it does not have the same innate flexibility as Helm charts, so it is not a replacement for Helm charts. So the main reason to use OCI Artifacts is to get a service deployed with as little effort as possible. It might not work for advanced use-cases, but for simple (most) use-cases it will make your life easier.
 
 <!-- readme-tree start -->
  ```
@@ -15,54 +17,60 @@ This repository contains the Kubernetes (K8s) manifests for the [cluster-name] c
 
 ## Usage
 
-This repository serves as the source-of-truth for the [cluster-name] cluster. Any changes you make to the manifests in this repository will be pulled into your running clusters that are connected to this repository.
+This repository serves as the source-of-truth for the OCI Artifacts.
 
-### Create your cluster environments
+### Reference an OCI Artifact with Kustomize
 
-```bash
-ksail init [name]-docker
-ksail init [name]-sandbox
-ksail init [name]-staging
-ksail init [name]-production
+> [! NOTE ]
+> Distributing K8s manifest over OCI is not supported by Kustomize yet. There is an active Pull Request that will add support for this. Until then, we can use http to reference the OCI Artifact.
+
+To reference an OCI Artifact with Kustomize, you need to add the following to your `kustomization.yaml` file that you want to reference the OCI Artifact from:
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # To reference a service you use the following syntax:
+  - https://github.com/energinet-digitalisering/oci-artifacts//k8s/[serviceName]?ref=[refName]
+  # To reference a config you use the following syntax:
+  - https://raw.githubusercontent.com/energinet-digitalisering/oci-artifacts/[refName]/k8s/[serviceName]/[pathToConfigYamlFile]
 ```
 
-### Provision the cluster in Docker
+### Setting variables for OCI Artifacts
 
-```bash
-ksail up [name]-docker
+Some of the OCI Artifacts require you to provide some variables to configure the service. You can do this by adding the variables to your variables files in the `k8s/clusters/[clusterName]/variables` folder in your own clusters repo. As the references are http, you can fairly easily decode where to look for the possible variables. For example, if you want to reference the `traefik` service, you can find the variables in the `k8s/traefik/*.yaml` files in this repository.
+
+### Patching OCI Artifacts
+
+Some OCI Artifacts might not meet your expectations out-of-the-box. In this case, you can patch the OCI Artifact by adding patches to your `kustomization.yaml` file that references the OCI Artifact. For example, if you want to patch the `traefik` service, you would add the following to your `kustomization.yaml` file:
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # To reference a service you use the following syntax:
+  - https://github.com/energinet-digitalisering/oci-artifacts//k8s/traefik?ref=v0.0.3
+
+patches:
+  # To patch a service with a patch file you use the following syntax:
+  - path: traefik-patch.yaml
+    target:
+      kind: HelmRelease
+      name: traefik
+      namespace: traefik
+  # To inline patch a service you use the following syntax:
+  - patch: |-
+      - op: replace
+        path: /some/existing/path
+        value: new value
+    target:
+      kind: HelmRelease
+      name: traefik
+      namespace: traefik
 ```
 
-### Share SOPS Keys
+This allows you full control over the OCI Artifacts, but it if you require a lot of patches, you might want to consider contributing to the OCI Artifact to make it more flexible, or copying the OCI Artifact into your own clusters repo and configure it there.
 
-Now that you have created the first cluster, KSail has created a SOPS key on your system, that allows you to encrypt and decrypt secrets. You can find the key in:
+## Contributing
 
-- Linux: `$HOME/sops/age/keys.txt`
-- macOS: `$HOME/Library/Application Support/sops/age/keys.txt`
-
-In this file you will find a section that looks like this:
-
-```txt
-# KSAIL_SOPS_KEY start
-# created: 2024-01-15T11:45:58+01:00
-# public key: <public-key>
-<private-key>
-# KSAIL_SOPS_KEY end
-```
-
-You need to copy and share this section with your team members, who then need to add it to their `keys.txt` file.
-
-> [!WARNING]
-> The export and import features are not working yet, so you need to copy the keys manually for now.
-
-Luckily, KSail has a command that helps you with this:
-
-```bash
-ksail sops --export <file-name>
-ksail sops --import <file-name>
-```
-
-### Provision the cluster to a cloud provider
-
-Azure:
-
-- Create an Infrastructure as Code (IaC) repository from the [pulumi-aks-gitops-template](https://github.com/energinet-digitalisering/pulumi-aks-gitops-template) repository template, and follow the instructions in the README.md file to provision the infrastructure.
+The OCI Artifacts repo is owned by the Digital Incubator, and as such it is the teams in the Digital Incubator that are responsible for maintaining the OCI Artifacts. However, we welcome contributions from anyone. If you want to contribute, please create issues or pull requests in this repository and we will take a look at it.
