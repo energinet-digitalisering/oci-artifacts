@@ -1,0 +1,12 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: gha-runner-scale-set
+  namespace: gha-runner-scale-set
+spec:
+  values:
+    template:
+      spec:
+        imagePullSecrets:
+          - name: ghcr-auth
+

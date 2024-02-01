@@ -17,7 +17,4 @@ patches:
       kind: HelmRelease
       name: gha-runner-scale-set
       namespace: gha-runner-scale-set
-    patch: |-
-      - op: replace
-        path: /spec/values/template/spec/imagePullSecrets/0/name
-        value: ghcr-auth
+    path: gha-runner-scale-set-patch.yaml
