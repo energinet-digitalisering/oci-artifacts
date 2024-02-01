@@ -28,7 +28,7 @@ spec:
       spec:
         initContainers:
           - name: init-dind-externals
-            image: ghcr.io/energinet-digitalisering/actions-runner:main
+            image: ${actions_runner_image}
             imagePullPolicy: Always
             command:
               [
@@ -43,7 +43,7 @@ spec:
                 mountPath: /home/runner/tmpDir
         containers:
           - name: runner
-            image: ghcr.io/energinet-digitalisering/actions-runner:main
+            image: ${actions_runner_image}
             imagePullPolicy: Always
             command: ["/home/runner/run.sh"]
             env:
@@ -81,5 +81,3 @@ spec:
             emptyDir: {}
           - name: dind-externals
             emptyDir: {}
-        imagePullSecrets:
-          - name: ghcr-auth

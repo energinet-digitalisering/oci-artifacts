@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: ghcr-auth
+    namespace: gha-runner-scale-set
+type: kubernetes.io/dockerconfigjson
+data:
+    .dockerconfigjson: ENC[AES256_GCM,data:RgVrwQVxO06wCTP3kCiCkFJzPAuyAETmUdWFoI0JtcaPwZ0lyAQog9GykE7fbwU2SdoFAgEGWlk9ihosb6X2B+uAdVbFDFQxubq/kcNhl6EhQ8yA+KqIY00HOOpGdVDrt8YbbuWscRhIKtATh0g2xMXn6eYPvHu/O6YH9qROt4FFu26Y8VqiklHQ0YFr264K6Y2f/oUsJXwu5BuxHry+5Dy3WPITWmr94PSeyqSmXCrrd/qVWLjndwzYbnSX9/SL12q91A5OtEQ7PkyXxmw7IE52W5lgtGJqrlZAhFeyaoUfiZoMLsr35qS2f6NwYgB8NiP0mtznSCBIJOngLsDEFy8JkzVe4HtC,iv:AaZjUbB8lMX/l0VJj5ts8FZ/x0nikvdtFz9PC8D+doU=,tag:eIfcgRnIYE+DcmThCpqUkA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age120p4hfdjg4x84rcl50vaus77l6rvpqyfjw23lszcpa089asr4s4qrtytwd
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzdnd0QkNZWFZQam1OdUN0
+            QTU3UmpERWlyc1psN2NNeWJndWc4Z2RKMkVvCkZNOVBzaTlsTGtkbkhWaFlkc0di
+            NkJzWWdKU2xTRFNPWEhCR29CZmp2czQKLS0tIHZUNlo5TjZwbXZ0dzJTQklGaFVD
+            YjFUS0QyamlUN0JTMkVvL3ZwNjNoSHMK2MASWXHN2+OJwirCtX6ZEQyxq3f5LReG
+            rmDteoErT2xPA8R8TShzXfaJ0bErkKT/A1XhjTMzuM043H2+/2+xFA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-02-01T04:40:05Z"
+    mac: ENC[AES256_GCM,data:6DwSX1V33T6viDrIuhrn7JboSdOx0h9mjksvbyPGGI1bsvJ1Q4wNWJJc3fQKZvfjRunesoz8RYO1X9S/ZBlRpgvDOtXFBHSxU9/dCbgk7W1YVZQcCc0H12W9BSMnSZITDN88fZqkySYhpy67rkMtZE0zlOfTPXVanDOjOZ1Ux/k=,iv:UBiqlYCNHBxzXlLkDicb8umIPcMPK+hPpeSeCqUAnss=,tag:DeYtNx1oKskAl2tI68uYOQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1

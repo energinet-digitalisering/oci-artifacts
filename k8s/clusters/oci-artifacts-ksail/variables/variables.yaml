@@ -4,7 +4,9 @@ metadata:
   name: variables
   namespace: flux-system
 data:
+  actions_runner_image: ghcr.io/energinet-digitalisering/actions-runner:main
+  github_config_url: https://github.com/energinet-digitalisering
   cluster_domain: oci-artifacts.ksail
   cluster_issuer_name: selfsigned-cluster-issuer
-  pulumi_backend: file://
   pulumi_backend_path: /pulumi-backend
+  pulumi_backend: file://

@@ -10,3 +10,14 @@ resources:
   - ../../../../traefik
   - ../../../../gha-runner-scale-set
   - ../../../../gha-runner-scale-set-controller
+  - ghcr-auth.sops.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/values/template/spec/imagePullSecrets/0/name
+        value: ghcr-auth
+    target:
+      kind: HelmRelease
+      name: gha-runner-scale-set
+      namespace: gha-runner-scale-set
