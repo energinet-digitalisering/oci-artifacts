@@ -6,4 +6,3 @@ resources:
   - release.yaml
   - repository.yaml
   - secret.yaml
-  - ghcr-auth.sops.yaml
