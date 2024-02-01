@@ -1,5 +1,9 @@
 # OCI Artifacts
 
+> [! WARNING ]
+> This repo is temporarily public, as Kustomize does not support pulling from OCI yet.
+
+
 This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts.
 
 - [Cert Manager](k8s/cert-manager/README.md)
