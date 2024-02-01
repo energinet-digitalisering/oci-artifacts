@@ -1,7 +1,7 @@
 # OCI Artifacts
 
 > [!WARNING]
-> This repo is temporarily public, as Kustomize does not support pulling from OCI yet. See #4
+> This repo is temporarily public, as Kustomize does not support pulling from OCI yet. See [#4](https://github.com/energinet-digitalisering/oci-artifacts/issues/4)
 
 
 This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts.
