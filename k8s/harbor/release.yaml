@@ -5,8 +5,6 @@ metadata:
 spec:
   interval: 5m
   dependsOn:
-    - name: traefik
-      namespace: traefik
     - name: cert-manager
       namespace: cert-manager
   install:

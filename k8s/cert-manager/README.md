@@ -27,7 +27,7 @@ This cluster issuer can be used to issue self-signed certificates. It is only re
 
 This certificate is used to issue certificates for any cluster issuer. It must be configured with the correct issuer.
 
-| Variable            | Description                    | Default |
-| ------------------- | ------------------------------ | :-----: |
-| cluster_domain      | The domain of the cluster      |   ""    |
-| cluster_issuer_name | The name of the cluster issuer |   ""    |
+| Variable            | Description                    | Default | Required |
+| ------------------- | ------------------------------ | :-----: | :------: |
+| cluster_domain      | The domain of the cluster      |         |    ✓     |
+| cluster_issuer_name | The name of the cluster issuer |         |    ✓     |
