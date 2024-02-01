@@ -8,3 +8,13 @@ resources:
   - ../../../../reloader
   - ../../../../testkube
   - ../../../../traefik
+  - ../../../../gha-runner-scale-set
+  - ../../../../gha-runner-scale-set-controller
+  - ghcr-auth.sops.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: gha-runner-scale-set
+      namespace: gha-runner-scale-set
+    path: gha-runner-scale-set-patch.yaml
