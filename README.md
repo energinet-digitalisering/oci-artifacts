@@ -2,6 +2,14 @@
 
 This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts.
 
+- [Cert Manager](k8s/cert-manager/README.md)
+- [Harbor](k8s/harbor/README.md)
+- [Pulumi Operator](k8s/pulumi-operator/README.md)
+- [Redis](k8s/redis/README.md)
+- [Reloader](k8s/reloader/README.md)
+- [Testkube](k8s/testkube/README.md)
+- [Traefik](k8s/traefik/README.md)
+
 OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requires almost no lines of code to get services deployed, so it can in some cases be a great alternative to Helm charts. However it does not have the same innate flexibility as Helm charts, so it is not a replacement for Helm charts. So the main reason to use OCI Artifacts is to get a service deployed with as little effort as possible. It might not work for advanced use-cases, but for simple (most) use-cases it will make your life easier.
 
 <!-- readme-tree start -->
