@@ -1,6 +1,6 @@
 # OCI Artifacts
 
-> [! WARNING ]
+> [!WARNING]
 > This repo is temporarily public, as Kustomize does not support pulling from OCI yet.
 
 
