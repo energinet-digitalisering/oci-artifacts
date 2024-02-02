@@ -22,7 +22,7 @@ spec:
   values:
     githubConfigUrl: ${github_config_url}
     githubConfigSecret: github-token
-    runnerScaleSetName: gha-runner-${cluster_domain}
+    runnerScaleSetName: ${runner_scale_set_name}
     # Inspired by https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers
     template:
       spec:
