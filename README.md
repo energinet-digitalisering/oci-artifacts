@@ -17,9 +17,35 @@ This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts
 OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requires almost no lines of code to get services deployed, so it can in some cases be a great alternative to Helm charts. However it does not have the same innate flexibility as Helm charts, so it is not a replacement for Helm charts. So the main reason to use OCI Artifacts is to get a service deployed with as little effort as possible. It might not work for advanced use-cases, but for simple (most) use-cases it will make your life easier.
 
 <!-- readme-tree start -->
- ```
- ```
- <!-- readme-tree end -->
+```
+.
+├── .github
+│   └── workflows
+├── .vscode
+└── k8s
+    ├── cert-manager
+    │   ├── certificates
+    │   └── cluster-issuers
+    ├── clusters
+    │   └── oci-artifacts-ksail
+    │       ├── flux-system
+    │       ├── infrastructure
+    │       │   ├── configs
+    │       │   └── services
+    │       └── variables
+    ├── gha-runner-scale-set
+    ├── gha-runner-scale-set-controller
+    ├── harbor
+    ├── pulumi-operator
+    ├── redis
+    ├── reloader
+    ├── testkube
+    │   └── executors
+    └── traefik
+
+23 directories
+```
+<!-- readme-tree end -->
 
 ## Requirements
 
