@@ -9,10 +9,10 @@ TestKube is a service that allows you to run tests on your Kubernetes cluster.
 
 | Variable                            | Description              | Default | Required |
 | ----------------------------------- | ------------------------ | :-----: | :------: |
-| `testkube_minio_cpu_request`        | Minio CPU request        |  `25m`  |    ✕     |
-| `testkube_minio_memory_request`     | Minio memory request     | `25Mi`  |    ✕     |
-| `testkube_minio_cpu_limit`          | Minio CPU limit          |  `50m`  |    ✕     |
-| `testkube_minio_memory_limit`       | Minio memory limit       | `50Mi`  |    ✕     |
+| `testkube_minio_cpu_request`        | Minio CPU request        |  `50m`  |    ✕     |
+| `testkube_minio_memory_request`     | Minio memory request     | `50Mi`  |    ✕     |
+| `testkube_minio_cpu_limit`          | Minio CPU limit          |  `100m`  |    ✕     |
+| `testkube_minio_memory_limit`       | Minio memory limit       | `100Mi`  |    ✕     |
 | `testkube_mongodb_cpu_request`      | MongoDB CPU request      | `150m`  |    ✕     |
 | `testkube_mongodb_memory_request`   | MongoDB memory request   | `100Mi` |    ✕     |
 | `testkube_mongodb_cpu_limit`        | MongoDB CPU limit        | `150m`  |    ✕     |
