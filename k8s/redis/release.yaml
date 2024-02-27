@@ -25,10 +25,10 @@ spec:
       resources:
         requests:
           cpu: ${redis_master_cpu_request:=50m}
-          memory: ${redis_master_memory_request:=128Mi}
+          memory: ${redis_master_memory_request:=100Mi}
         limits:
           cpu: ${redis_master_cpu_limit:=100m}
-          memory: ${redis_master_memory_limit:=256Mi}
+          memory: ${redis_master_memory_limit:=200Mi}
     replica:
       persistence:
         enabled: ${redis_persistence_enabled:=false}

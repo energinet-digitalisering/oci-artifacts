@@ -23,9 +23,40 @@ spec:
         hosts:
           - testkube.${cluster_domain}
         path: /v1 # This is required for the ingress to work per https://github.com/kubeshop/helm-charts/issues/428#issuecomment-1873973628
+      minio:
+        resources:
+          requests:
+            cpu: ${testkube_minio_cpu_request:=25m}
+            memory: ${testkube_minio_memory_request:=25Mi}
+          limits:
+            cpu: ${testkube_minio_cpu_limit:=50m}
+            memory: ${testkube_minio_memory_limit:=50Mi}
+      mongodb:
+        resources:
+          requests:
+            cpu: ${testkube_mongodb_cpu_request:=150m}
+            memory: ${testkube_mongodb_memory_request:=100Mi}
+          limits:
+            cpu: ${testkube_mongodb_cpu_limit:=150m}
+            memory: ${testkube_mongodb_memory_limit:=100Mi}
+      resources:
+        requests:
+          cpu: ${testkube_api_cpu_request:=200m}
+          memory: ${testkube_api_memory_request:=200Mi}
+        limits:
+          cpu: ${testkube_api_cpu_limit:=200m}
+          memory: ${testkube_api_memory_limit:=200Mi}
     testkube-dashboard:
       ingress:
         enabled: true
         hosts:
           - testkube.${cluster_domain}
       apiServerEndpoint: testkube.${cluster_domain}${cluster_ingress_port:=}
+      resources:
+        requests:
+          cpu: ${testkube_dashboard_cpu_request:=25m}
+          memory: ${testkube_dashboard_memory_request:=25Mi}
+        limits:
+          cpu: ${testkube_dashboard_cpu_limit:=50m}
+          memory: ${testkube_dashboard_memory_limit:=50Mi}
+
