@@ -26,11 +26,11 @@ spec:
       minio:
         resources:
           requests:
-            cpu: ${testkube_minio_cpu_request:=25m}
-            memory: ${testkube_minio_memory_request:=25Mi}
+            cpu: ${testkube_minio_cpu_request:=50m}
+            memory: ${testkube_minio_memory_request:=50Mi}
           limits:
-            cpu: ${testkube_minio_cpu_limit:=50m}
-            memory: ${testkube_minio_memory_limit:=50Mi}
+            cpu: ${testkube_minio_cpu_limit:=100m}
+            memory: ${testkube_minio_memory_limit:=100Mi}
       mongodb:
         resources:
           requests:
