@@ -4,3 +4,24 @@ TestKube is a service that allows you to run tests on your Kubernetes cluster.
 
 - [Documentation](https://docs.testkube.io)
 - [Helm Chart](https://github.com/kubeshop/helm-charts/tree/develop/charts/testkube)
+
+## Post-build variables
+
+| Variable                            | Description              | Default | Required |
+| ----------------------------------- | ------------------------ | :-----: | :------: |
+| `testkube_minio_cpu_request`        | Minio CPU request        |  `25m`  |    ✕     |
+| `testkube_minio_memory_request`     | Minio memory request     | `25Mi`  |    ✕     |
+| `testkube_minio_cpu_limit`          | Minio CPU limit          |  `50m`  |    ✕     |
+| `testkube_minio_memory_limit`       | Minio memory limit       | `50Mi`  |    ✕     |
+| `testkube_mongodb_cpu_request`      | MongoDB CPU request      | `150m`  |    ✕     |
+| `testkube_mongodb_memory_request`   | MongoDB memory request   | `100Mi` |    ✕     |
+| `testkube_mongodb_cpu_limit`        | MongoDB CPU limit        | `150m`  |    ✕     |
+| `testkube_mongodb_memory_limit`     | MongoDB memory limit     | `100Mi` |    ✕     |
+| `testkube_api_cpu_request`          | API CPU request          | `200m`  |    ✕     |
+| `testkube_api_memory_request`       | API memory request       | `200Mi` |    ✕     |
+| `testkube_api_cpu_limit`            | API CPU limit            | `200m`  |    ✕     |
+| `testkube_api_memory_limit`         | API memory limit         | `200Mi` |    ✕     |
+| `testkube_dashboard_cpu_request`    | Dashboard CPU request    |  `25m`  |    ✕     |
+| `testkube_dashboard_memory_request` | Dashboard memory request | `25Mi`  |    ✕     |
+| `testkube_dashboard_cpu_limit`      | Dashboard CPU limit      |  `50m`  |    ✕     |
+| `testkube_dashboard_memory_limit`   | Dashboard memory limit   | `50Mi`  |    ✕     |
