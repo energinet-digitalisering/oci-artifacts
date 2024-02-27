@@ -22,6 +22,13 @@ spec:
     master:
       persistence:
         enabled: ${redis_persistence_enabled:=false}
+      resources:
+        requests:
+          cpu: ${redis_master_cpu_request:=100m}
+          memory: ${redis_master_memory_request:=128Mi}
+        limits:
+          cpu: ${redis_master_cpu_limit:=200m}
+          memory: ${redis_master_memory_limit:=256Mi}
     replica:
       persistence:
         enabled: ${redis_persistence_enabled:=false}
