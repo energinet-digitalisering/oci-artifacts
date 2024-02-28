@@ -31,14 +31,6 @@ spec:
           limits:
             cpu: ${testkube_minio_cpu_limit:=100m}
             memory: ${testkube_minio_memory_limit:=150Mi}
-      mongodb:
-        resources:
-          requests:
-            cpu: ${testkube_mongodb_cpu_request:=150m}
-            memory: ${testkube_mongodb_memory_request:=100Mi}
-          limits:
-            cpu: ${testkube_mongodb_cpu_limit:=150m}
-            memory: ${testkube_mongodb_memory_limit:=100Mi}
       resources:
         requests:
           cpu: ${testkube_api_cpu_request:=200m}
@@ -59,4 +51,26 @@ spec:
         limits:
           cpu: ${testkube_dashboard_cpu_limit:=50m}
           memory: ${testkube_dashboard_memory_limit:=50Mi}
-
+    testkube-operator:
+      proxy:
+        resources:
+          requests:
+            cpu: ${testkube_operator_proxy_cpu_request:=25m}
+            memory: ${testkube_operator_proxy_memory_request:=25Mi}
+          limits:
+            cpu: ${testkube_operator_proxy_cpu_limit:=50m}
+            memory: ${testkube_operator_proxy_memory_limit:=50Mi}
+      resources:
+        requests:
+          cpu: ${testkube_operator_cpu_request:=50m}
+          memory: ${testkube_operator_memory_request:=50Mi}
+        limits:
+          cpu: ${testkube_operator_cpu_limit:=100m}
+          memory: ${testkube_operator_memory_limit:=100Mi}
+    mongodb:
+      resources:
+        requests:
+          cpu: ${testkube_mongodb_cpu_request:=150m}
+          memory: ${testkube_mongodb_memory_request:=100Mi}
+        limits:
+          cpu: ${testkube_mongodb_cpu_limit:=1}
