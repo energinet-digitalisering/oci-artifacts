@@ -33,8 +33,8 @@ spec:
             memory: ${testkube_minio_memory_limit:=150Mi}
       resources:
         requests:
-          cpu: ${testkube_api_cpu_request:=200m}
-          memory: ${testkube_api_memory_request:=200Mi}
+          cpu: ${testkube_api_cpu_request:=100m}
+          memory: ${testkube_api_memory_request:=100Mi}
         limits:
           cpu: ${testkube_api_cpu_limit:=200m}
           memory: ${testkube_api_memory_limit:=200Mi}
