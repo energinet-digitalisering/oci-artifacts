@@ -30,7 +30,7 @@ spec:
             memory: ${testkube_minio_memory_request:=50Mi}
           limits:
             cpu: ${testkube_minio_cpu_limit:=100m}
-            memory: ${testkube_minio_memory_limit:=100Mi}
+            memory: ${testkube_minio_memory_limit:=150Mi}
       mongodb:
         resources:
           requests:
