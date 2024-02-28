@@ -72,5 +72,3 @@ spec:
         requests:
           cpu: ${testkube_mongodb_cpu_request:=150m}
           memory: ${testkube_mongodb_memory_request:=100Mi}
-        limits:
-          cpu: ${testkube_mongodb_cpu_limit:=1}

@@ -17,7 +17,6 @@ TestKube is a service that allows you to run tests on your Kubernetes cluster.
 | testkube_minio_memory_limit            | Minio memory limit            | `150Mi` |    ✕     |
 | testkube_mongodb_cpu_request           | MongoDB CPU request           | `150m`  |    ✕     |
 | testkube_mongodb_memory_request        | MongoDB memory request        | `100Mi` |    ✕     |
-| testkube_mongodb_cpu_limit             | MongoDB CPU limit             | `300m`  |    ✕     |
 | testkube_api_cpu_request               | API CPU request               | `200m`  |    ✕     |
 | testkube_api_memory_request            | API memory request            | `200Mi` |    ✕     |
 | testkube_api_cpu_limit                 | API CPU limit                 | `200m`  |    ✕     |
