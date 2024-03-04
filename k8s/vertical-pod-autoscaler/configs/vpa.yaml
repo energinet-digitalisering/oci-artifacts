@@ -1,9 +1,0 @@
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: ${vpa-target-name}-vpa
-spec:
-  targetRef:
-    apiVersion: ${vpa-api-version:=apps/v1}
-    kind: ${vpa-kind:=Deployment}
-    name: ${vpa-target-name}
