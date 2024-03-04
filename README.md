@@ -47,8 +47,9 @@ OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requi
     │   └── executors
     ├── traefik
     └── vertical-pod-autoscaler
+        └── configs
 
-25 directories
+26 directories
 ```
 <!-- readme-tree end -->
 
