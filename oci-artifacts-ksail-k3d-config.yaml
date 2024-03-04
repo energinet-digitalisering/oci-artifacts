@@ -11,3 +11,4 @@ options:
       - arg: "--disable=traefik"
         nodeFilters:
           - server:*
+      - arg: "--disable=metrics-server"
