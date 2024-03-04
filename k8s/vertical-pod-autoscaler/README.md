@@ -10,18 +10,12 @@ A service that automatically adjusts the CPU and memory reservations for your po
 
 ### VerticalPodAutoscaler
 
-To enable the Vertical Pod Autoscaler, you need to create a `VerticalPodAutoscaler` resource for the target resource (e.g. `Deployment`, `StatefulSet`, `DaemonSet`).
+- `k8s/vertical-pod-autoscaler/configs/vpa.yaml`
 
-```yaml
-apiVersion: autoscaling.k8s.io/v1beta2
-kind: VerticalPodAutoscaler
-metadata:
-  name: <vpa-name>
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: <Deployment | StatefulSet | DaemonSet>
-    name: <target-name>
-```
+This `VerticalPodAutoscaler` resource is used to enable Vertical Pod Autoscaling for a specific resource (e.g. `Deployment`, `StatefulSet`, `DaemonSet`).
 
-It is recommended that you include this resource as part of a component. For example if you have a component `k8s/redis` that deploys a Helm Chart with Kustomize, you can include the `VerticalPodAutoscaler` resource in the `k8s/redis` folder, and reference it in the  `k8s/redis/kustomization.yaml` file.
+| Variable        | Description                                                          |  Default   | Required |
+| --------------- | -------------------------------------------------------------------- | :--------: | :------: |
+| vpa-target-name | The name of the target resource                                      |            |    ✓     |
+| vpa-api-version | The API version of the target resource                               |  apps/v1   |    ✕     |
+| vpa-kind        | The kind of the target resource (Deployment, StatefulSet, DaemonSet) | Deployment |    ✕     |
