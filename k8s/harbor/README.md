@@ -13,7 +13,7 @@ Harbor is an open-source cloud native registry that stores, signs, and scans con
 
 ## Post-build variables
 
-| Variable             | Description                     | Default | Required |
-| -------------------- | ------------------------------- | :-----: | :------: |
-| cluster_domain       | The domain of the cluster       |         |    ✓     |
-| cluster_ingress_port | The port of the cluster ingress |   ""    |    ✕     |
+| Variable             | Description               | Default | Required |
+| -------------------- | ------------------------- | :-----: | :------: |
+| cluster_domain       | The domain of the cluster |   ""    |    ✓     |
+| cluster_ingress_port | The port of the ingress   |   ""    |    ✕     |
