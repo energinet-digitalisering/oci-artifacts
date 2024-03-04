@@ -36,10 +36,3 @@ spec:
         matchRule: Host(`traefik.${cluster_domain}`)
         entryPoints:
           - websecure
-    resources:
-      requests:
-        cpu: ${traefik_cpu_request:=100m}
-        memory: ${traefik_memory_request:=50Mi}
-      limits:
-        cpu: ${traefik_cpu_limit:=200m}
-        memory: ${traefik_memory_limit:=100Mi}
