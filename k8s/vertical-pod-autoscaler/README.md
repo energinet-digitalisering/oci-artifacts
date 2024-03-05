@@ -6,6 +6,12 @@ A service that automatically adjusts the CPU and memory reservations for your po
 
 - [Metrics Server](../infrastructure/metrics-server/README.md)
 
+## Post-build variables
+
+| Variable         | Description                                              | Default | Required |
+| ---------------- | -------------------------------------------------------- | :-----: | :------: |
+| vpa_min_replicas | The minimum number of live replicas required for updates |    1    |    ✕     |
+
 ## CRDs
 
 ### VerticalPodAutoscaler
