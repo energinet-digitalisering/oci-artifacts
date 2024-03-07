@@ -4,6 +4,7 @@
     "config:recommended",
     ":disableDependencyDashboard"
   ],
+  "assigneesFromCodeOwners": true,
   "flux": {
     "fileMatch": [
       "^k8s/.+\\.ya?ml$"
