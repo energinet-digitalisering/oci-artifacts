@@ -15,5 +15,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: prometheus-operator-crds
-  # https://github.com/stakater/Reloader/blob/master/deployments/kubernetes/chart/reloader/values.yaml
+  # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-operator-crds/values.yaml
   values: {}
