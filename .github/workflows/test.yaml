@@ -27,9 +27,7 @@ jobs:
       - name: ⚙️ Setup Homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: ⚙️ Install KSail
-        run: |
-          echo $DOCKER_HOST
-          brew install devantler/formulas/ksail
+        run: brew install devantler/formulas/ksail
       - name: ⛴️ Provision cluster
         run: |
           ksail sops ${{ vars.KSAIL_CLUSTER_NAME }} --import "${{ secrets.KSAIL_SOPS_KEY }}"
