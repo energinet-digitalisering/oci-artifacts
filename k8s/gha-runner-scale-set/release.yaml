@@ -23,6 +23,8 @@ spec:
     githubConfigUrl: ${github_config_url}
     githubConfigSecret: github-token
     runnerScaleSetName: ${runner_scale_set_name}
+    containerMode:
+      type: "dind"
     template:
       spec:
         containers:
