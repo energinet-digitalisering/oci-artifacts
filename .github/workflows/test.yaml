@@ -24,9 +24,6 @@ jobs:
     steps:
       - name: 📑 Checkout
         uses: actions/checkout@v4
-      - name: Test
-        run: |
-          docker ps
       - name: ⚙️ Setup Homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: ⚙️ Install KSail
