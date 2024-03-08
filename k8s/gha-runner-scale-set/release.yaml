@@ -23,8 +23,9 @@ spec:
     githubConfigUrl: ${github_config_url}
     githubConfigSecret: github-token
     runnerScaleSetName: ${runner_scale_set_name}
-    spec:
-      containers:
-        - name: runner
-          image: ${actions_runner_image}
-          command: ["/home/runner/run.sh"]
+    template:
+      spec:
+        containers:
+          - name: runner
+            image: ${actions_runner_image}
+            command: ["/home/runner/run.sh"]
