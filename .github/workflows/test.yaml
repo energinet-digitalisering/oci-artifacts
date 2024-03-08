@@ -26,7 +26,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Test
         run: |
-          sudo systemctl enable --now docker
           docker ps
       - name: ⚙️ Setup Homebrew
         uses: Homebrew/actions/setup-homebrew@master
