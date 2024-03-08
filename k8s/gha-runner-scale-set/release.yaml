@@ -26,5 +26,5 @@ spec:
     spec:
       containers:
         - name: runner
-          image: ${actions_runner_image:=ghcr.io/actions/actions-runner:latest}
+          image: ${actions_runner_image}
           command: ["/home/runner/run.sh"]
