@@ -25,6 +25,7 @@ spec:
     runnerScaleSetName: ${runner_scale_set_name}
     containerMode:
       type: "dind"
+    maxRunners: ${runner_scale_set_max_runners:=1}
     template:
       spec:
         containers:
