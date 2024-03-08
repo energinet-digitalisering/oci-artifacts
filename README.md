@@ -10,6 +10,7 @@ This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts
 - [GitHub Actions Runner Scale Set Controller](k8s/gha-runner-scale-set-controller/README.md)
 - [Harbor](k8s/harbor/README.md)
 - [Metrics Server](k8s/metrics-server/README.md)
+- [Prometheus Operator CRDs](k8s/prometheus-operator-crds/README.md)
 - [Pulumi Operator](k8s/pulumi-operator/README.md)
 - [Redis](k8s/redis/README.md)
 - [Reloader](k8s/reloader/README.md)
@@ -40,6 +41,7 @@ OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requi
     ├── gha-runner-scale-set-controller
     ├── harbor
     ├── metrics-server
+    ├── prometheus-operator-crds
     ├── pulumi-operator
     ├── redis
     ├── reloader
@@ -48,7 +50,7 @@ OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requi
     ├── traefik
     └── vertical-pod-autoscaler
 
-25 directories
+26 directories
 ```
 <!-- readme-tree end -->
 

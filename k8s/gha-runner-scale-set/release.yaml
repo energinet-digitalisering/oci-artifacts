@@ -23,62 +23,11 @@ spec:
     githubConfigUrl: ${github_config_url}
     githubConfigSecret: github-token
     runnerScaleSetName: ${runner_scale_set_name}
-    # Inspired by https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers
+    containerMode:
+      type: "dind"
     template:
       spec:
-        initContainers:
-          - name: init-dind-externals
-            image: ${actions_runner_image}
-            imagePullPolicy: Always
-            command:
-              [
-                "cp",
-                "-r",
-                "-v",
-                "/home/runner/externals/.",
-                "/home/runner/tmpDir/",
-              ]
-            volumeMounts:
-              - name: dind-externals
-                mountPath: /home/runner/tmpDir
         containers:
           - name: runner
             image: ${actions_runner_image}
-            imagePullPolicy: Always
             command: ["/home/runner/run.sh"]
-            env:
-              - name: DOCKER_HOST
-                value: unix:///run/docker/docker.sock
-            volumeMounts:
-              - name: work
-                mountPath: /home/runner/_work
-              - name: dind-sock
-                mountPath: /run/docker
-                readOnly: true
-          - name: dind
-            image: docker:dind
-            args:
-              - dockerd
-              - --host=unix:///run/docker/docker.sock
-              - --group=$(DOCKER_GROUP_GID)
-              - --dns=1.1.1.1
-            env:
-              - name: DOCKER_GROUP_GID
-                value: "123"
-            securityContext:
-              privileged: true
-            volumeMounts:
-              - name: work
-                mountPath: /home/runner/_work
-              - name: dind-sock
-                mountPath: /run/docker
-              - name: dind-externals
-                mountPath: /home/runner/externals
-        volumes:
-          - name: work
-            emptyDir: {}
-          - name: dind-sock
-            emptyDir: {}
-          - name: dind-externals
-            emptyDir: {}
-
