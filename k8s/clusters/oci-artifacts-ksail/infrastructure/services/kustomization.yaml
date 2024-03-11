@@ -6,6 +6,7 @@ resources:
   - ../../../../gha-runner-scale-set-controller
   - ../../../../harbor
   - ../../../../metrics-server
+  - ../../../../otel-collector
   - ../../../../prometheus-operator-crds
   - ../../../../pulumi-operator
   - ../../../../redis
