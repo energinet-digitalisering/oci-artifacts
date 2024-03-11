@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   test-cluster:
-    runs-on: gha-runner-substation-data-dev
+    runs-on: substation-data-dev
     if: ${{ !startsWith(github.event.pull_request.title, '[DRAFT]') }}
     steps:
       - name: 📑 Checkout
