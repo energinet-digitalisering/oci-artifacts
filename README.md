@@ -10,6 +10,7 @@ This repository contains Kubernetes (K8s) manifests distributed as OCI Artifacts
 - [GitHub Actions Runner Scale Set Controller](k8s/gha-runner-scale-set-controller/README.md)
 - [Harbor](k8s/harbor/README.md)
 - [Metrics Server](k8s/metrics-server/README.md)
+- [OTEL Collector](k8s/otel-collector/README.md)
 - [Prometheus Operator CRDs](k8s/prometheus-operator-crds/README.md)
 - [Pulumi Operator](k8s/pulumi-operator/README.md)
 - [Redis](k8s/redis/README.md)
