@@ -41,6 +41,8 @@ OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requi
     ├── gha-runner-scale-set-controller
     ├── harbor
     ├── metrics-server
+    ├── otel-operator
+    │   └── collectors
     ├── prometheus-operator-crds
     ├── pulumi-operator
     ├── redis
@@ -50,7 +52,7 @@ OCI Artifacts are a great way to distribute ready-to-use K8s manifests. It requi
     ├── traefik
     └── vertical-pod-autoscaler
 
-26 directories
+28 directories
 ```
 <!-- readme-tree end -->
 
