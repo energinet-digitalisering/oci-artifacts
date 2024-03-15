@@ -1,0 +1,160 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: otel-collector-cluster
+  namespace: otel-operator
+  labels:
+    app: otel-collector-cluster
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: otel-collector-cluster
+  namespace: otel-operator
+  labels:
+    app: otel-collector-cluster
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - events
+      - namespaces
+      - namespaces/status
+      - nodes
+      - nodes/spec
+      - pods
+      - pods/status
+      - replicationcontrollers
+      - replicationcontrollers/status
+      - resourcequotas
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - daemonsets
+      - deployments
+      - replicasets
+      - statefulsets
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - extensions
+    resources:
+      - daemonsets
+      - deployments
+      - replicasets
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - batch
+    resources:
+      - jobs
+      - cronjobs
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - autoscaling
+    resources:
+      - horizontalpodautoscalers
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: otel-collector-cluster
+  namespace: otel-operator
+  labels:
+    app: otel-collector-cluster
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: otel-collector-cluster
+subjects:
+- kind: ServiceAccount
+  name: otel-collector-cluster
+  namespace: otel-operator
+---
+apiVersion: opentelemetry.io/v1alpha1
+kind: OpenTelemetryCollector
+metadata:
+  name: otel-collector-cluster
+  namespace: otel-operator
+spec:
+  mode: deployment
+  replicas: 1
+  serviceAccount: otel-collector-cluster
+  env:
+    - name: MY_POD_IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP
+  config: |
+    receivers:
+      k8s_cluster:
+        auth_type: serviceAccount
+        collection_interval: 10s
+      k8sobjects:
+        auth_type: serviceAccount
+        objects:
+          - name: events
+            mode: watch
+            group: events.k8s.io
+            exclude_watch_type:
+              - DELETED
+      prometheus:
+        config:
+          scrape_configs:
+          - job_name: otel-collector-cluster
+            scrape_interval: 10s
+            static_configs:
+              - targets:
+                - $${env:MY_POD_IP}:8888
+    processors:
+      batch: {}
+      memory_limiter:
+        check_interval: 5s
+        limit_percentage: 80
+        spike_limit_percentage: 25
+    exporters:
+      debug:
+        verbosity: detailed
+      logging: {}
+    service:
+      pipelines:
+        metrics:
+          receivers:
+            - k8s_cluster
+            - prometheus
+          processors:
+            - memory_limiter
+            - batch
+          exporters:
+            - debug
+        logs:
+          receivers:
+            - k8sobjects
+            - k8s_cluster
+          processors:
+            - memory_limiter
+            - batch
+          exporters:
+            - debug
+    extensions:
+      health_check:
+        endpoint: $${env:MY_POD_IP}:13133
+    telemetry:
+        metrics:
+          address: $${env:MY_POD_IP}:8888
