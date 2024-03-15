@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   test-cluster:
-    runs-on: gha-runner-substation-data-dev
+    runs-on: substation-data-dev
     if: ${{ !startsWith(github.event.pull_request.title, '[DRAFT]') }}
     steps:
       - name: 📑 Checkout
@@ -31,7 +31,7 @@ jobs:
       - name: ⛴️ Provision cluster
         run: |
           ksail sops ${{ vars.KSAIL_CLUSTER_NAME }} --import "${{ secrets.KSAIL_SOPS_KEY }}"
-          ksail up ${{ vars.KSAIL_CLUSTER_NAME }} --timeout 600
+          ksail up ${{ vars.KSAIL_CLUSTER_NAME }}
         env:
           KSAIL_SOPS_KEY: ${{ secrets.KSAIL_SOPS_KEY }}
       - name: 🐎 Print free CPU
