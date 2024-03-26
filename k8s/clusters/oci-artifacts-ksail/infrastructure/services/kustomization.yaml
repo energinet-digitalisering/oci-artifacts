@@ -6,10 +6,12 @@ resources:
   - ../../../../gha-runner-scale-set-controller
   - ../../../../grafana
   - ../../../../harbor
+  - ../../../../loki
   - ../../../../metrics-server
   - ../../../../otel-collector-k8s
   - ../../../../otel-operator
-  - ../../../../prometheus-operator-crds
+  # Loki brings these in:
+  # - ../../../../prometheus-operator-crds
   - ../../../../pulumi-operator
   - ../../../../redis
   - ../../../../reloader
@@ -24,3 +26,13 @@ patches:
       name: gha-runner-scale-set
       namespace: gha-runner-scale-set
     path: gha-runner-scale-set-patch.yaml
+  - target:
+      kind: HelmRelease
+      name: otel-collector-node
+      namespace: otel-collector-k8s
+    path: otel-collector-node-patch.yaml
+  - target:
+      kind: HelmRelease
+      name: otel-collector-cluster
+      namespace: otel-collector-k8s
+    path: otel-collector-cluster-patch.yaml

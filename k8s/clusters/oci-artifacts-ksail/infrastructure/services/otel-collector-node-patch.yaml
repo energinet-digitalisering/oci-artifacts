@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: otel-collector-node
+  namespace: otel-collector-k8s
+spec:
+  values:
+    config:
+      exporters:
+        loki:
+          endpoint: http://loki.loki:3100/loki/api/v1/push
+          headers:
+            x-scope-orgid: oci-artifacts-ksail
+
+      processors:
+        resource/loki:
+          attributes:
+            - action: insert
+              key: loki.resource.labels
+              value: k8s.namespace.name, k8s.node.name
+
+      service:
+        pipelines:
+          logs:
+            exporters:
+              - loki
+              - debug
+            processors:
+              - k8sattributes
+              - resource/loki
+              - memory_limiter
+              - batch
