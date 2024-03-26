@@ -7,6 +7,10 @@ spec:
   values:
     config:
       exporters:
+        prometheusremotewrite:
+          endpoint: http://mimir-distributor.mimir:8080/api/v1/push
+          headers:
+            x-scope-orgid: oci-artifacts-ksail
         loki:
           endpoint: http://loki.loki:3100/loki/api/v1/push
           headers:
@@ -19,8 +23,25 @@ spec:
               key: loki.attribute.labels
               value: event.domain, k8s.resource.name
 
+        transform/prometheus:
+          metric_statements:
+            - context: datapoint
+              statements:
+              - set(attributes["namespace"], resource.attributes["k8s.namespace.name"])
+              - set(attributes["node"], resource.attributes["k8s.node.name"])
+              - set(attributes["pod"], resource.attributes["k8s.pod.name"])
+              - set(attributes["container"], resource.attributes["k8s.container.name"])
+
       service:
         pipelines:
+          metrics:
+            exporters:
+              - prometheusremotewrite
+              - debug
+            processors:
+              - transform/prometheus
+              - memory_limiter
+              - batch
           logs:
             exporters:
               - loki

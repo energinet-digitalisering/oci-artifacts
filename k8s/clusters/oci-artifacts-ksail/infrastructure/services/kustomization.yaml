@@ -8,6 +8,7 @@ resources:
   - ../../../../harbor
   - ../../../../loki
   - ../../../../metrics-server
+  - ../../../../mimir
   - ../../../../otel-collector-k8s
   - ../../../../otel-operator
   # Loki brings these in:
