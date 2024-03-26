@@ -4,6 +4,7 @@ resources:
   - ../../../../cert-manager
   - ../../../../gha-runner-scale-set
   - ../../../../gha-runner-scale-set-controller
+  - ../../../../grafana
   - ../../../../harbor
   - ../../../../metrics-server
   - ../../../../otel-collector-k8s
