@@ -1,0 +1,46 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: loki
+spec:
+  interval: 5m
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  chart:
+    spec:
+      chart: loki
+      version: 5.47.1
+      sourceRef:
+        kind: HelmRepository
+        name: loki
+  # https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml
+  values:
+    singleBinary:
+      enabled: true
+      replicas: 1
+    loki:
+      commonConfig:
+        replication_factor: 1
+      server:
+        grpc_server_max_recv_msg_size: 16777216 # 16 MB
+        grpc_server_max_send_msg_size: 16777216 # 16 MB
+    minio:
+      enabled: true
+    monitoring:
+      dashboards: false
+      lokiCanary:
+        enabled: false
+      rules:
+        enabled: false
+      serviceMonitor:
+        enabled: false
+        metricsInstance:
+          enabled: false
+      selfMonitoring:
+        enabled: false
+        grafanaAgent:
+          installOperator: false
+    test:
+      enabled: false
